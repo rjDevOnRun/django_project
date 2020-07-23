@@ -26,4 +26,22 @@
 	'blog.apps.BlogConfig' [format:  app-name.app.app-Config-name]
 
 - to load a template to views... use "render(request, 'blog/home.html')"
+
+
+-- ADMIN ------------------------------------------------
+
+-- prepare database (collect TODOs for database actions)
+    python manage.py makemigrations
+
+-- make changes to database
+    python manage.py migrate
+
+- to create Admin user:
+    python manage.py createsuperuser
+        SuperAdmin: Test@123.
+        TestUser: Testing321
+-- ------------------------------------------------------
+
+
+
 		
