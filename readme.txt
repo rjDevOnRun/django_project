@@ -36,11 +36,53 @@
 -- make changes to database
     python manage.py migrate
 
+* NOTE: makemigrations/migrate every time
+        you change/modify models or db
+
+        in migrations folder we can view the
+        impacted changes/actions of migrate
+
+        checkout, 'app-name'.'migration_num'.py file
+        check sql execute to db:
+            python manage.py sqlmigrate blog 001
+                                     (app-name) [number]
+
 - to create Admin user:
     python manage.py createsuperuser
         SuperAdmin: Test@123.
         TestUser: Testing321
 -- ------------------------------------------------------
+
+-- SHELL
+    we can create classes, posts, or any objects using
+    the Shell environment
+
+    python manage.py shell
+    exit() <<-- to exit
+
+        app.models          model-name
+    from blog.models import Post
+    from django.contrib.auth.models import User
+
+    Get all models:
+    User.objects.all()
+    Post.objects.all()
+
+
+        filters:
+        User.objects.first()
+        User.objects.filter(username='TestUser')
+
+    Capture in a variable:
+    user = User.objects.filter(username='TestUser').first()
+
+    Add a Post:
+    post_1 = Post(title='Blog 1', content='First post from Shell', author = user)
+    post_1.save()  <<-- saves post to Db
+
+
+
+
 
 
 
